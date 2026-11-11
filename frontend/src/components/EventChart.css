@@ -1,0 +1,103 @@
+.predicted-teams-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.team-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 0.5rem;
+  font-family: 'HSE';
+  font-weight: 800;
+  background: rgba(255, 255, 255, 0);
+  transition: background 0.2s;
+  gap: 1.5rem;
+  min-width: 0;
+}
+.team-label-bar-block {
+  display: flex;
+  flex-direction: column;
+  min-width: 120px;
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+}
+.team-score-block {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  /* иногда можно добавить min-width:3.5rem */
+}
+.team-value {
+  font-family: 'HSE';
+  font-size: 2.4rem;
+  font-weight: 300;
+  color: #000000;
+  line-height: 1.1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.team-progress-bar-wrapper {
+  width: 100%;
+  margin: 2px 0 0 0;
+}
+.team-progress-bar {
+  background: #be07c5;
+  height: 8px;
+  border-radius: 6px;
+  transition: width 0.5s cubic-bezier(.7,0,.2,1), background 0.3s;
+  opacity: 0.85;
+  margin: 0;
+}
+.team-score {
+  font-size: 1rem;
+  color: #000000;
+  font-weight: 500;
+}
+
+.freq-bar-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+}
+.freq-bar-item {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.freq-bar-label-line {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1.2rem;
+  min-width: 0;
+}
+.freq-bar-label {
+  font-size: 3.1rem;
+  font-family: 'HSE';
+  color: #000000;
+  font-weight: 800;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex: 1;
+  min-width: 0;
+}
+.freq-bar-percent {
+  font-size: 2.1rem;
+  color: #be07c5;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  flex-shrink: 0;
+}
+.freq-bar-progress-wrapper {
+  width: 100%;
+  margin-top: 6px;
+}
+

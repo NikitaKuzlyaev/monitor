@@ -1,0 +1,366 @@
+/* @font-face {
+    font-family: "LVCMono";
+    src: url("../assets/fonts/LVCMono.otf")  format("opentype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+} */
+
+.page.pulsepage {
+    min-height: 100vh;
+    background: #ffffff;
+    color: #000000;
+}
+
+.pulsepage__grid {
+    display: grid;
+    grid-template-columns: 75% 25%;
+    grid-template-rows: 20% 80%;
+    height: 100vh;
+    width: 100%;
+}
+
+.pulsepage__block {
+    border: 1px solid rgba(0, 0, 0, 0.664);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pulsepage__block--top-left {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.pulsepage__block--top-right {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.pulsepage__block--bottom-left {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+.pulsepage__block--bottom-right {
+    grid-column: 2;
+    grid-row: 2;
+    align-items: flex-start;
+    justify-content: flex-start;
+    overflow: hidden;
+    padding: 0;
+}
+
+.pulsepage__timer {
+    width: 100%;
+    text-align: center;
+    font-family: "Menlo", 'Courier New', monospace;
+    font-size: 8em;
+    color: #000000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+
+.pulsepage__timer-ms {
+    font-size: 0.67em;
+    line-height: 1;
+    vertical-align: baseline;
+}
+
+.pulsepage__timer--dot {
+    font-size: 8em;
+    color: #000000;
+    font-weight: 200;
+}
+
+.pulsepage__submissions-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    padding: 0.5rem;
+    overflow: hidden;
+}
+
+.pulsepage__submission-card {
+    background: rgba(0, 0, 0, 0.74);
+    border: 1px solid rgba(0, 0, 0, 0.603);
+    border-radius: 0.25rem;
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: row;
+    gap: 0.75rem;
+    min-height: fit-content;
+    flex-shrink: 0;
+    opacity: 0.85;
+    transition: box-shadow 0.3s ease;
+}
+
+.pulsepage__submission-card--glow {
+    animation: glow-pulse 0.5s ease-in-out infinite;
+}
+
+@keyframes glow-pulse {
+    0%, 100% {
+        box-shadow: 0 0 5px rgba(255, 255, 255, 0.3), 0 0 10px rgba(255, 255, 255, 0.2);
+    }
+    50% {
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 255, 255, 0.3);
+    }
+}
+
+.pulsepage__submission-problem {
+    font-size: 2rem;
+    color: #000000;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 2.5rem;
+    flex-shrink: 0;
+}
+
+/* TESTING styles: yellow and blinking */
+.pulsepage__submission-card--testing {
+    animation: testing-pulse 1.2s linear infinite;
+}
+
+@keyframes testing-pulse {
+    0% { background-color: rgba(251, 192, 45, 0.06); }
+    50% { background-color: rgba(251, 192, 45, 0.16); }
+    100% { background-color: rgba(251, 192, 45, 0.06); }
+}
+
+.pulsepage__submission-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    flex: 1;
+    min-width: 0;
+}
+
+.pulsepage__submission-team {
+    font-size: 1.1rem;
+    color: rgba(0, 0, 0, 0.9);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-top: 0;
+    font-weight: 500;
+}
+
+.pulsepage__submission-bottom {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: 0.75rem;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.pulsepage__submission-verdict {
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.pulsepage__submission-time {
+    font-family: "Menlo", 'Courier New', monospace;
+}
+
+.pulsepage__submission-tests {
+    font-family: "Menlo", 'Courier New', monospace;
+}
+
+.pulsepage__submission-lang {
+    font-family: "Menlo", 'Courier New', monospace;
+}
+
+.pulsepage__standings-wrapper {
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+    box-sizing: border-box;
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+}
+
+.pulsepage__standings {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.pulsepage__standings-head,
+.pulsepage__standings-row {
+    display: grid;
+    gap: 0.1rem;
+    align-items: center;
+}
+
+.pulsepage__standings-head {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: rgba(0, 0, 0, 0.65);
+    padding: 0 0.4rem;
+    box-sizing: border-box;
+}
+
+.pulsepage__standings-body {
+    flex: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    scrollbar-gutter: inherit;
+
+    /* --- скрываем визуальный скроллбар --- */
+    scrollbar-width: none;      /* Firefox */
+    -ms-overflow-style: none;   /* IE, Edge Legacy */
+}
+
+.pulsepage__standings-body::-webkit-scrollbar {
+    display: none;              /* Chrome, Safari, Opera */
+}
+
+.pulsepage__standings-row {
+    background: #80e2e71f;
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 0.35rem;
+    padding: 0.35rem 0.4rem;
+    box-sizing: border-box;
+    font-size: 0.95rem;
+}
+
+.pulsepage__standings-cell {
+    font-family: "Menlo", 'Courier New', monospace;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+}
+
+.pulsepage__standings-cell--team {
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+    font-weight: 500;
+    line-height: 1.0;
+    text-align: left;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: normal;
+}
+
+.pulsepage__standings-cell--rank,
+.pulsepage__standings-cell--solved,
+.pulsepage__standings-cell--penalty,
+.pulsepage__standings-cell--problem {
+    text-align: center;
+}
+
+
+.pulsepage__standings-problem {
+    min-height: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.25rem;
+    padding: 0.15rem;
+    background: rgba(255, 255, 255, 0.02);
+    position: relative;
+}
+
+.pulsepage__standings-problem--solved {
+    background: rgba(0, 255, 8, 0.555);
+    color: #0bc21d;
+}
+
+.pulsepage__standings-problem--attempts {
+    background: rgba(244, 67, 54, 0.85);
+    color: #ffffff;
+}
+
+.pulsepage__standings-problem--testing {
+    background: rgba(255, 243, 224, 0.55);
+    border: 1px solid rgba(250, 200, 20, 0.6);
+}
+
+.pulsepage__standings-problem-badge {
+    position: absolute;
+    top: 4px;
+    right: 6px;
+    width: 10px;
+    height: 10px;
+    background: #fbc02d;
+    border-radius: 2px;
+    box-shadow: 0 0 6px rgba(251, 192, 45, 0.6);
+}
+
+.pulsepage__standings-problem--header {
+    background: transparent;
+    color: rgba(0, 0, 0, 0.75);
+    border: 1px solid rgb(0, 0, 0);
+}
+
+.pulsepage__standings-problem-status {
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.pulsepage__standings-problem-time {
+    font-size: 0.7rem;
+    color: rgb(0, 0, 0);
+}
+
+.pulsepage__standings-problem--testing .pulsepage__standings-problem-time,
+.pulsepage__standings-problem--attempts .pulsepage__standings-problem-time {
+    color: rgba(0,0,0,0.85);
+}
+
+.pulsepage__standings-placeholder {
+    width: 100%;
+    text-align: center;
+    color: rgb(0, 0, 0);
+    font-size: 1rem;
+    align-self: center;
+}
+
+
+.pulsepage__stats {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+    font-weight: 600;
+    font-size: 2.6rem;
+    gap: 1rem;
+}
+
+/* .pulsepage__stat {
+    font-size: 2.9rem;
+    white-space: nowrap;
+} */
+
+.pulsepage__standings-head--warning {
+    background: #fae713 !important;
+    transition: background 0.3s;
+}
+
+.pulsepage__standings-head--warning .pulsepage__standings-cell {
+    color: #201902;
+}
+
+.pulsepage__standings-cell--warning .pulsepage__standings-cell {
+    color: #201902;
+}

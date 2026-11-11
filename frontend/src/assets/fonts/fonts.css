@@ -1,0 +1,40 @@
+/* Подключение локального шрифта LeoHand */
+@font-face {
+  font-family: 'LeoHand';
+  src: url('./ofont.ru_LeoHand.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'MTSans';
+  src: url('./MTSans-LightCondensed.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'NumbusUL';
+  src: url('./Nimbus Sans Round Ultra Light.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'HSE';
+  src: url('./HSESans-Thin.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Menlo';
+  src: url('./Menlo-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}

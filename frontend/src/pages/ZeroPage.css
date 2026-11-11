@@ -1,0 +1,93 @@
+.page.zeropage {
+    min-height: 100vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    background: #000000;
+    position: relative;
+    width: 100%;
+}
+
+.zeropage__content {
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem;
+    padding-left: 25vw;
+    padding-top: 18vh;
+}
+
+.zeropage__line {
+    width: 4px;
+    height: 160px;
+    background: #ffffff;
+    opacity: 0.7;
+}
+
+.zeropage__text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.page.zeropage .monitor  {
+    font-size: 1.2em;
+    font-family: 'HSE';
+    color: #ffffff;
+}
+
+.page.zeropage .catch  {
+    font-size: 1.2em;
+    font-family: 'HSE';
+    color: #ffffff;
+}
+
+.zeropage__subtitle {
+    position: absolute;
+    top: 58%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'HSE';
+    font-size: 1.0em;
+    color: #ffffffcc;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.zeropage__loader {
+    position: absolute;
+    top: 64%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30vw;
+    max-width: 380px;
+}
+
+.zeropage__loader-track {
+    position: relative;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+    border-radius: 999px;
+}
+
+.zeropage__loader-bar {
+    position: absolute;
+    top: 0;
+    left: -30%;
+    height: 100%;
+    width: 30%;
+    background: linear-gradient(90deg, transparent, #ffffff, transparent);
+    animation: zeropage-loader 1.4s ease-in-out infinite;
+}
+
+@keyframes zeropage-loader {
+    0% {
+        left: -30%;
+    }
+    50% {
+        left: 50%;
+    }
+    100% {
+        left: 120%;
+    }
+}

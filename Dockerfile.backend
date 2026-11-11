@@ -1,0 +1,23 @@
+FROM python:3.13-slim
+
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    PIP_NO_CACHE_DIR=1 \
+    PIP_DISABLE_PIP_VERSION_CHECK=1
+
+WORKDIR /app
+
+RUN addgroup --system app && adduser --system --ingroup app app
+
+COPY requirements.txt req.txt ./
+RUN pip install --upgrade pip && pip install -r requirements.txt
+
+COPY --chown=app:app backend ./backend
+COPY --chown=app:app docker/entrypoint-backend.sh ./docker/entrypoint-backend.sh
+
+RUN chmod +x ./docker/entrypoint-backend.sh
+
+USER app
+EXPOSE 8000
+
+ENTRYPOINT ["/app/docker/entrypoint-backend.sh"]
